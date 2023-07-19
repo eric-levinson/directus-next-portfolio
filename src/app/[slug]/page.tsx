@@ -5,21 +5,19 @@ import CallToAction from '../../components/cta';
 
 async function getPage(slug) {
 	try {
-		//console.log(slug)
 		const page = await directus.items('pages').readByQuery({
 			filter: {
 				slug: { _eq: slug },
-			},fields: [
-			'*.*',
-			"blocks.*",
-			"blocks.item.*",
-			"blocks.item.background_image.*",
-		]
+			},
+			fields: ['*.*', 'blocks.*', 'blocks.item.*', 'blocks.item.background_image.*'],
 		});
-		//console.log(page)
-		return page?.data[0];
+
+		let data = page !== undefined ? page!.data : null;
+		
+		return data![0]
 	} catch (error) {
 		notFound();
+		return null;
 	}
 }
 

@@ -5,17 +5,18 @@ import { Stars, OrbitControls } from '@react-three/drei'
 
 
 export default function Frame( params ) {
-  const canvasRef = useRef();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const resizeCanvas = () => {
-      const navbar = document.getElementsByClassName('navbar')[0];
+      const navbar = document.getElementsByClassName('navbar')[0] as HTMLElement;
       const width = window.innerWidth;
       const height = window.innerHeight - (navbar?.offsetHeight || 0);
+      if (canvas) {
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
-      console.log(height)
+      }
     };
 
     resizeCanvas();
