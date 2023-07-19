@@ -11,7 +11,7 @@ export default function Landing(params) {
 
         <div className="absolute container mx-auto mb-8 inset-x-0 bottom-0">
 			
-          <div className="font-bold text-9xl text-neutral-200">
+          <div className="font-bold lg:text-9xl md:text-6xl text-neutral-200">
 			<h1 className="">
 			  {global.title}
 			</h1>
