@@ -12,7 +12,7 @@ async function getPage(slug) {
 			fields: ['*.*', 'blocks.*', 'blocks.item.*', 'blocks.item.background_image.*'],
 		});
 
-		let data = page !== undefined ? page!.data : null;
+		let data = page !== null ? page!.data : null;
 		
 		return data![0]
 	} catch (error) {
