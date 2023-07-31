@@ -1,7 +1,6 @@
 import directus from "../pages/api/directus";
 
 export default function Projectslist(params) {
-    const blog = params.data.blog;
     const posts = params.data.posts;
 
     return (

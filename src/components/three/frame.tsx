@@ -18,6 +18,7 @@ export default function Frame( params ) {
       canvas.style.height = height + 'px';
       }
     };
+    console.log(params)
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -28,16 +29,28 @@ export default function Frame( params ) {
   }, []);
 
   return (
-    <Canvas ref={canvasRef}>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      <OrbitControls 
-        autoRotate 
-        autoRotateSpeed={0.3} 
-        enableDamping={false}
-        enablePan={false}
-        enableZoom={false}
-        enableRotate={false}
-        />
-    </Canvas>
+    <>
+      <Canvas ref={canvasRef}>
+        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+        <OrbitControls
+          autoRotate
+          autoRotateSpeed={0.3}
+          enableDamping={false}
+          enablePan={false}
+          enableZoom={false}
+          enableRotate={false}
+          />
+          
+        
+
+      </Canvas>
+      {/*<div className="absolute h-full container mx-auto mb-8 inset-x-0 bottom-0 font-bold lg:text-9xl md:text-6xl text-neutral-200">
+        
+          <h1 className="">
+            {params.data.title}
+          </h1>
+          <p className="text-right">{params.data.description}</p>
+  </div>*/}
+      </>
   )
 }
