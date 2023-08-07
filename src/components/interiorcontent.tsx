@@ -28,7 +28,7 @@ export default function InteriorContent(params) {
                 }
 
             })}
-            <div className='container'>
+            <div className='container mx-auto'>
                 <div className="grid place-content-center">
                     <h1 className="text-3xl font-bold underline mb-6 mt-6">{title}</h1>
                     <div className="prose prose-lg dark:prose-invert mt-8 mb-8" dangerouslySetInnerHTML={{ __html: content }}></div>

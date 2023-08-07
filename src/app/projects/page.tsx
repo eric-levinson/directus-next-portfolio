@@ -6,7 +6,7 @@ async function getPosts() {
   const posts = await directus.items("projects").readByQuery({
     fields: ["*", "slug", "title", "*.*", "images.*"],
   });
-  console.log(posts);
+  //console.log(posts);
   return posts.data;
 }
 

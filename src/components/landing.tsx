@@ -11,7 +11,7 @@ export default function Landing(params) {
         <div className="h-full text-4xl font-bold text-neutral-200 md:text-6xl lg:text-9xl">
           <div className="container absolute inset-x-0 bottom-0 mx-auto h-full">
             <h1 className="absolute top-0">{global.title}</h1>
-            <p className="absolute bottom-0 right-0 mb-8">
+            <p className="absolute bottom-0 right-0 mb-8 text-end	">
               {global.description}
             </p>
           </div>

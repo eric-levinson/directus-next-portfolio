@@ -16,6 +16,7 @@
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
     "daisyui": "^2.51.3",
+    "detect-gpu": "^5.0.36",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
     "next": "13.2.1",

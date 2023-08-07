@@ -6,6 +6,7 @@ const GithubIcon = (props) => (
     style={{
       fill: "#fff",
     }}
+    className="w-6 h-6"
     viewBox="0 0 496 512"
     {...props}
   >

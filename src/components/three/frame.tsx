@@ -1,10 +1,31 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, OrbitControls } from "@react-three/drei";
+import { getGPUTier } from "detect-gpu";
+
+
+
+
 
 export default function Frame(params) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const [starCount, setStarCount] = useState(600);
+
+  (async () => {
+    const gpuTier = await getGPUTier();
+
+    if (gpuTier.tier === 3) {
+      setStarCount(5000)
+    } else if (gpuTier.tier === 2) {
+      setStarCount(1000)
+    } else if (gpuTier.tier === 1) {
+      setStarCount(600)
+    }
+  
+    //console.log(gpuTier)
+  })();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -35,7 +56,7 @@ export default function Frame(params) {
         <Stars
           radius={100}
           depth={50}
-          count={5000}
+          count={starCount}
           factor={4}
           saturation={0}
           fade
@@ -50,13 +71,6 @@ export default function Frame(params) {
           enableRotate={false}
         />
       </Canvas>
-      {/*<div className="absolute h-full container mx-auto mb-8 inset-x-0 bottom-0 font-bold lg:text-9xl md:text-6xl text-neutral-200">
-        
-          <h1 className="">
-            {params.data.title}
-          </h1>
-          <p className="text-right">{params.data.description}</p>
-  </div>*/}
     </>
   );
 }
