@@ -1,60 +1,68 @@
 import directus from "../pages/api/directus";
 
 export default function Projectslist(params) {
-    const posts = params.data.posts;
+  const posts = params.data.posts;
 
-    return (
-        <>
-            <div className="py-6 sm:py-8 lg:py-12">
-                <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <div className="mb-10 md:mb-16">
-                        <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">
-                            Projects
-                        </h2>
+  return (
+    <>
+      <div className="py-6 sm:py-8 lg:py-12">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div className="mb-10 md:mb-16">
+            <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">
+              Projects
+            </h2>
 
-                        <p className="mx-auto max-w-screen-md text-center md:text-lg">
-                            Welcome to the Projects page, where I present a selection of my recent works and achievements. From web development to software solutions, these projects demonstrate my dedication to delivering high-quality and user-friendly experiences. Feel free to explore and learn more about the technologies utilized and the value they bring to users and businesses alike.
-                        </p>
-                    </div>
+            <p className="mx-auto max-w-screen-md text-center md:text-lg">
+              Welcome to the Projects page, where I present a selection of my
+              recent works and achievements. From web development to software
+              solutions, these projects demonstrate my dedication to delivering
+              high-quality and user-friendly experiences. Feel free to explore
+              and learn more about the technologies utilized and the value they
+              bring to users and businesses alike.
+            </p>
+          </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-                        {posts.map((post) => (
-                            <div 
-                                key={post.slug}
-                                className="card w-96 bg-base-100 shadow-xl rounded-lg border border-slate-900/10 dark:border-slate-50/[0.06]">
-                            <figure>
-                                <a
-                                        href={`/projects/${post.slug}`}
-                                        className="group relative block h-48 overflow-hidden md:h-64"
-                                    >
-                                        <img
-                                            src={`${directus.url}assets/${post.featured_image.filename_disk}?width=300`}
-                                            loading="lazy"
-                                            alt=""
-                                            className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 group-hover:blur-sm"
-                                        />
-                                    </a>
-                            </figure>
-                            <div className="card-body">
-                              <h2 className="card-title">
-                                    <a
-                                        href={`/projects/${post.slug}`}
-                                        className="transition duration-100 hover:text-neutral-500 active:text-neutral-600"
-                                    >
-                                        {post.title}
-                                    </a>
-                                </h2>
-                              <p>{post.description}</p>
-                              <div className="card-actions justify-end mt-4">
-                                {post.technologies.map((technology) => (
-                                    <div key={technology} className="badge badge-outline">{technology}</div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                            ))}
+          <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+            {posts.map((post) => (
+              <div
+                key={post.slug}
+                className="card w-full rounded-lg border border-slate-900/10 bg-base-100 shadow-xl dark:border-slate-50/[0.06] mb-4"
+              >
+                <figure>
+                  <a
+                    href={`/projects/${post.slug}`}
+                    className="group relative block h-48 overflow-hidden md:h-64"
+                  >
+                    <img
+                      src={`${directus.url}assets/${post.featured_image.filename_disk}?width=300`}
+                      loading="lazy"
+                      alt=""
+                      className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 group-hover:blur-sm"
+                    />
+                  </a>
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <a
+                      href={`/projects/${post.slug}`}
+                      className="transition duration-100 hover:text-neutral-500 active:text-neutral-600 underline"
+                    >
+                      {post.title}
+                    </a>
+                  </h2>
+                  <p>{post.description}</p>
+                  <div className="card-actions mt-4 justify-end">
+                    {post.technologies.map((technology) => (
+                      <div key={technology} className="badge-outline badge">
+                        {technology}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
 
-                        {/*posts.map((post) => (
+            {/*posts.map((post) => (
                             <div
                                 key={post.slug}
                                 className="flex flex-col overflow-hidden rounded-lg border border-slate-900/10 bg-base-100 dark:border-slate-50/[0.06]"
@@ -114,7 +122,7 @@ export default function Projectslist(params) {
                             </div>
                         ))*/}
 
-                        {/*
+            {/*
                         <div className="flex flex-col overflow-hidden rounded-lg border bg-white">
                             <a
                                 href="#"
@@ -333,9 +341,9 @@ export default function Projectslist(params) {
                                 </div>
                             </div>
                         </div>*/}
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

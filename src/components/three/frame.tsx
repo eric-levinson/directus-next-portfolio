@@ -18,7 +18,7 @@ export default function Frame( params ) {
       canvas.style.height = height + 'px';
       }
     };
-    console.log(params)
+    //console.log(params)
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
