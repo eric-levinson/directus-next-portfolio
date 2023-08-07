@@ -13,7 +13,7 @@ async function getPosts() {
 export default async function DynamicPage() {
   const posts = await getPosts();
   const postsLoaded = posts!.length > 0;
-  console.log(posts);
+  //console.log(posts);
 
   return (
     <div className="container mx-auto">

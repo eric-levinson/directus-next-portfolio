@@ -36,7 +36,7 @@ export default async function RootLayout({
   const brand = await getBrand();
   const footer = await getFooter();
   
-  console.log(links)
+  //console.log(links)
   return (
 
     <html lang="en" >

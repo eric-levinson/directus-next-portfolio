@@ -8,11 +8,13 @@ export default function Landing(params) {
       <div className="relative min-h-full ">
         <Frame data={global} />
 
-        <div className="h-full font-bold text-neutral-200 text-4xl md:text-6xl lg:text-9xl">
-          <div className="absolute container mx-auto h-full inset-x-0 bottom-0">
-			<h1 className="absolute top-0 mt-8">{global.title}</h1>
-			<p className="absolute bottom-0 right-0 mb-8">{global.description}</p>
-		  </div>
+        <div className="h-full text-4xl font-bold text-neutral-200 md:text-6xl lg:text-9xl">
+          <div className="container absolute inset-x-0 bottom-0 mx-auto h-full">
+            <h1 className="absolute top-0 mt-4">{global.title}</h1>
+            <p className="absolute bottom-0 right-0 mb-8">
+              {global.description}
+            </p>
+          </div>
         </div>
       </div>
     </>
